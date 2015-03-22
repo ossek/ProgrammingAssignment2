@@ -1,10 +1,10 @@
 ## We want a structure that represents a matrix
-##  and a 'cache' for it's inverse.
+##  and a 'cache' for its inverse.
 ##The first function is a factory function to create this structure,
 ##  The second is a function to attempt to use the cached inverse,
-##  and if cache empty, compute inverse and cache it.
+##  and if cache empty, compute inverse and cache the inverse.
 
-## Factory method for the structure. 
+## Factory function for the structure. 
 ## Requires that matrix x is invertible.
 makeCacheMatrix <- function(x = matrix()) {
     m_inverse <- NULL
@@ -39,7 +39,7 @@ cacheSolve <- function(x, ...) {
     inverse <- x$getInverse()
     if(is.null(inverse))
     {
-        inverse <- solve(x$getMatrix())
+        inverse <- solve(x$getMatrix(),...)
         x$setInverse(inverse)
     }
     inverse
